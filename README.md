@@ -34,6 +34,6 @@ flutter run
 
 ![Лента](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main_screen.jpg)
 
-###Страница новости:
+### Страница новости:
 
 ![Страница новости](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/article_screen.jpg)
