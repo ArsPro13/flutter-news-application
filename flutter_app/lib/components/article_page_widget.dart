@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/article_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ArticlePageWidget extends StatefulWidget {
   const ArticlePageWidget({Key? key, required this.article}) : super(key: key);
@@ -82,6 +83,13 @@ class ArticlePageWidgetState extends State<ArticlePageWidget> {
                 padding: const EdgeInsets.all(15),
                 child: Text(
                     '${widget.article.author} at ${widget.article.publishedAt?.substring(11, 19)} on ${widget.article.publishedAt?.substring(0, 10)}'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: InkWell(
+                  child: const Text('Open article in browser'),
+                  onTap: () => launchUrl(Uri.parse(widget.article.url ?? "")),
+                ),
               ),
             ],
           ),
