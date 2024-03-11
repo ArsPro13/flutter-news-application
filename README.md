@@ -13,6 +13,10 @@
 ## Запуск
 
 ```terminal
+cd flutter_app
+```
+
+```terminal
 flutter pub get
 ```
 
@@ -24,3 +28,10 @@ dart run build_runner build
 flutter run
 ```
 
+## Скриншоты
+
+Лента (основной экран):
+![alt text](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main_screen.jpg)
+
+Страница новости:
+![alt text](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/article_screen.jpg)
