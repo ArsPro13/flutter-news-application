@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/components/article_image_widget.dart';
 
 import '../models/article_model.dart';
 import 'article_page_widget.dart';
 
 class ArticleWidget extends StatefulWidget {
-  const ArticleWidget({Key? key, required this.article}) : super(key: key);
+  const ArticleWidget(
+      {super.key,
+      required this.article,
+      required this.height,
+      required this.width});
 
   final ArticleData article;
+  final double height;
+  final double width;
 
   @override
   ArticleWidgetState createState() => ArticleWidgetState();
@@ -23,45 +30,59 @@ class ArticleWidgetState extends State<ArticleWidget> {
         },
         child: Container(
             margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 30),
-            padding:
-                const EdgeInsets.only(left: 5, right: 5, bottom: 15, top: 5),
             decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black12,
-              ),
               color: Theme.of(context).colorScheme.background,
-              borderRadius: const BorderRadius.all(Radius.circular(15)),
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-                  spreadRadius: 4,
-                  blurRadius: 7,
-                  offset: const Offset(0, 0), // changes position of shadow
-                ),
-              ],
+              borderRadius: const BorderRadius.all(Radius.circular(25)),
             ),
             child: Column(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    widget.article.urlToImage ?? "no url given",
-                    errorBuilder: (BuildContext context, Object exception,
-                        StackTrace? stackTrace) {
-                      return Center(
+                Stack(
+                  children: [
+                    ArticleImageWidget(
+                        imageUrl: widget.article.urlToImage ?? patternUrl,
+                        height: widget.height,
+                        width: widget.width),
+                    Container(
+                      height: widget.height,
+                      width: widget.width,
+
+                      decoration: BoxDecoration(
+
+                          borderRadius: const BorderRadius.all(Radius.circular(25)),
+                          border: Border.all(),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Theme.of(context).colorScheme.background.withOpacity(0),
+                            Theme.of(context).colorScheme.background.withOpacity(0.05),
+                            Theme.of(context).colorScheme.background.withOpacity(0.3),
+                            Theme.of(context).colorScheme.background.withOpacity(0.7),
+                            Theme.of(context).colorScheme.background.withOpacity(0.9),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      left: 20,
+                      right: 20,
+                      child: Container(
+                        margin:
+                            const EdgeInsets.only(top: 10, left: 7, right: 7),
+                        child: Center(
                           child: Text(
-                        'Image can not be reached',
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.error),
-                      ));
-                    },
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 10, left: 7, right: 7),
-                  child: Text(widget.article.title ?? "no title given"),
-                ),
+                            widget.article.title ?? "no title given",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                )
               ],
             )));
   }
