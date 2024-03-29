@@ -2,14 +2,11 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 import '../models/article_model.dart';
 import 'article_widget.dart';
 import 'package:http/http.dart' as http;
-
-import 'package:json_annotation/json_annotation.dart';
 
 class NewsTab extends StatefulWidget {
   final String url;

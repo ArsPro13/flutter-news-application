@@ -6,11 +6,10 @@ import 'article_page_widget.dart';
 
 class ArticleWidget extends StatefulWidget {
   const ArticleWidget(
-      {Key? key,
+      {super.key,
       required this.article,
       required this.height,
-      required this.width})
-      : super(key: key);
+      required this.width});
 
   final ArticleData article;
   final double height;
@@ -55,12 +54,10 @@ class ArticleWidgetState extends State<ArticleWidget> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Theme.of(context)
-                                .colorScheme
-                                .background
-                                .withOpacity(0),
-
+                            Theme.of(context).colorScheme.background.withOpacity(0),
+                            Theme.of(context).colorScheme.background.withOpacity(0.05),
                             Theme.of(context).colorScheme.background.withOpacity(0.3),
+                            Theme.of(context).colorScheme.background.withOpacity(0.7),
                             Theme.of(context).colorScheme.background.withOpacity(0.9),
                           ],
                         ),
