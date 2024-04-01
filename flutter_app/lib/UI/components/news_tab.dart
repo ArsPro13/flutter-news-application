@@ -2,11 +2,13 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/Data/DAO/articles_dao.dart';
+import 'package:flutter_app/Data/DAO/articles_runtime_dao.dart';
+import 'package:flutter_app/Data/models/article_model.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-
-import '../models/article_model.dart';
-import 'article_widget.dart';
 import 'package:http/http.dart' as http;
+
+import 'article_widget.dart';
 
 class NewsTab extends StatefulWidget {
   final String url;
@@ -21,9 +23,11 @@ class NewsTab extends StatefulWidget {
 }
 
 class NewsTabState extends State<NewsTab> {
-  List<ArticleData> articlesCollection = [];
+  // ArticlesRuntimeDao articlesDao = ArticlesRuntimeDao();
+  List<ArticleData> data = [];
   bool loaded = true;
   int currentlyLoaded = 5;
+
 
   Future<List<ArticleData>> fetchArticlesByUrl(url) async {
     final response = await http.get(Uri.parse(url));
@@ -31,19 +35,20 @@ class NewsTabState extends State<NewsTab> {
     if (response.statusCode == 200) {
       Map data = json.decode(response.body);
       final articles =
-          (data['articles'] as List).map((i) => ArticleData.fromJson(i));
+      (data['articles'] as List).map((i) => ArticleData.fromJson(i));
       return articles.toList();
     } else {
       return [];
     }
   }
 
+
   Future<void> fetchArticles(url) async {
     setState(() {
       loaded = false;
     });
 
-    articlesCollection = await fetchArticlesByUrl(url);
+    data = await fetchArticlesByUrl(url);
 
     setState(() {
       loaded = true;
@@ -61,6 +66,7 @@ class NewsTabState extends State<NewsTab> {
     loaded = false;
     super.initState();
     fetchArticles(widget.url);
+    // articlesDao = fetchArticles(widget.url, articlesDao) as ArticlesRuntimeDao;
   }
 
   @override
@@ -72,7 +78,7 @@ class NewsTabState extends State<NewsTab> {
               onNotification: (notification) {
                 if (notification is ScrollEndNotification &&
                     notification.metrics.extentAfter == 0) {
-                  loadMore(articlesCollection.length);
+                  loadMore(data.length);
                 }
                 return false;
               },
@@ -81,8 +87,8 @@ class NewsTabState extends State<NewsTab> {
                   itemCount: currentlyLoaded + 1,
                   itemBuilder: (context, index) {
                     if (index < currentlyLoaded) {
-                      return ArticleWidget(article: articlesCollection[index], height: 300, width: 900);
-                    } else if (index < articlesCollection.length) {
+                      return ArticleWidget(article: data[index], height: 300, width: 900);
+                    } else if (index < data.length) {
                       return const Center(
                         child: CircularProgressIndicator(),
                       );

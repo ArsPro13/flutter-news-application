@@ -7,11 +7,10 @@ const patternUrl =
 
 class ArticleImageWidget extends StatefulWidget {
   const ArticleImageWidget(
-      {Key? key,
+      {super.key,
       required this.imageUrl,
       required this.height,
-      required this.width})
-      : super(key: key);
+      required this.width});
 
   final String imageUrl;
   final double height;
@@ -24,7 +23,7 @@ class ArticleImageWidget extends StatefulWidget {
 class ArticleImageWidgetState extends State<ArticleImageWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: widget.height,
       width: widget.width,
       child: ClipRRect(
@@ -33,8 +32,8 @@ class ArticleImageWidgetState extends State<ArticleImageWidget> {
           fit: BoxFit.cover,
           child: Image.network(
             widget.imageUrl ?? "no url given",
-            errorBuilder:
-                (BuildContext context, Object exception, StackTrace? stackTrace) {
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
               return ArticleImageWidget(
                 imageUrl: patternUrl,
                 height: widget.height,
@@ -43,7 +42,6 @@ class ArticleImageWidgetState extends State<ArticleImageWidget> {
             },
           ),
         ),
-
       ),
     );
   }
