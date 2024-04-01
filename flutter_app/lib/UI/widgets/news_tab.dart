@@ -4,9 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Data/DAO/articles_dao.dart';
 import 'package:flutter_app/Data/DAO/articles_runtime_dao.dart';
-import 'package:flutter_app/Data/models/article_model.dart';
 import 'package:loading_indicator/loading_indicator.dart';
-import 'package:http/http.dart' as http;
 
 import 'article_widget.dart';
 
