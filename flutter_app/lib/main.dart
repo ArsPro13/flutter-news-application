@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/UI/components/article_widget.dart';
-import 'package:flutter_app/UI/components/liked_articles_page_widget.dart';
+import 'package:flutter_app/UI/widgets/article_widget.dart';
+import 'package:flutter_app/UI/widgets/liked_articles_page_widget.dart';
 import 'package:flutter_app/Data/models/article_model.dart';
 import 'package:logger/logger.dart';
 import 'package:flutter_app/UI/themes/dark_theme.dart';
 import 'package:flutter_app/UI/themes/light_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import 'Domain/liked-articles-logic.dart';
-import 'UI/components/news_tab.dart';
+import 'UI/widgets/news_tab.dart';
 
 var logger = Logger();
 

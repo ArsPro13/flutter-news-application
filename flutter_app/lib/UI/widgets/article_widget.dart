@@ -1,9 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/UI/components/article_image_widget.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'dart:convert';
+import 'package:flutter_app/UI/widgets/article_image_widget.dart';
 
 import '../../Data/models/article_model.dart';
 import 'article_like_button_widget.dart';
@@ -38,6 +35,13 @@ class ArticleWidgetState extends State<ArticleWidget> {
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).colorScheme.primary,
+              blurRadius: 9,
+              offset: const Offset(0, 0), // Shadow position
+            ),
+          ],
         ),
         child: Column(
           children: [

@@ -262,6 +262,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.5.1"
+  flutter_simple_dependency_injection:
+    dependency: "direct main"
+    description:
+      name: flutter_simple_dependency_injection
+      sha256: cca273f637cbb46df1f1147cc9f688ea51ec3f611bae37e632f5aaa414f6e27b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter

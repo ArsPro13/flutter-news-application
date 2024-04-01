@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Data/DAO/articles_dao.dart';
-import 'package:flutter_app/Data/DAO/articles_runtime_dao.dart';
 import 'package:flutter_app/Data/models/article_model.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:http/http.dart' as http;
@@ -23,11 +21,9 @@ class NewsTab extends StatefulWidget {
 }
 
 class NewsTabState extends State<NewsTab> {
-  // ArticlesRuntimeDao articlesDao = ArticlesRuntimeDao();
   List<ArticleData> data = [];
   bool loaded = true;
   int currentlyLoaded = 5;
-
 
   Future<List<ArticleData>> fetchArticlesByUrl(url) async {
     final response = await http.get(Uri.parse(url));
@@ -35,13 +31,12 @@ class NewsTabState extends State<NewsTab> {
     if (response.statusCode == 200) {
       Map data = json.decode(response.body);
       final articles =
-      (data['articles'] as List).map((i) => ArticleData.fromJson(i));
+          (data['articles'] as List).map((i) => ArticleData.fromJson(i));
       return articles.toList();
     } else {
       return [];
     }
   }
-
 
   Future<void> fetchArticles(url) async {
     setState(() {
@@ -66,7 +61,6 @@ class NewsTabState extends State<NewsTab> {
     loaded = false;
     super.initState();
     fetchArticles(widget.url);
-    // articlesDao = fetchArticles(widget.url, articlesDao) as ArticlesRuntimeDao;
   }
 
   @override
@@ -87,7 +81,8 @@ class NewsTabState extends State<NewsTab> {
                   itemCount: currentlyLoaded + 1,
                   itemBuilder: (context, index) {
                     if (index < currentlyLoaded) {
-                      return ArticleWidget(article: data[index], height: 300, width: 900);
+                      return ArticleWidget(
+                          article: data[index], height: 300, width: 900);
                     } else if (index < data.length) {
                       return const Center(
                         child: CircularProgressIndicator(),
