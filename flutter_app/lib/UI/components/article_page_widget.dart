@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/article_model.dart';
+import '../../Data/models/article_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ArticlePageWidget extends StatefulWidget {
