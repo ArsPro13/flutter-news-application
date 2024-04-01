@@ -61,6 +61,10 @@ class likedArticlesListProvider extends ChangeNotifier {
       addArticle(ArticleData.fromJson(json.decode(element)));
     }
   }
+
+  List<ArticleData> getArticles() {
+    return articles;
+  }
 }
 
 late final likedArticlesProvider =

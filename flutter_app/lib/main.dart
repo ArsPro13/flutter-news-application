@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/UI/widgets/article_widget.dart';
 import 'package:flutter_app/UI/widgets/liked_articles_page_widget.dart';
-import 'package:flutter_app/Data/models/article_model.dart';
 import 'package:logger/logger.dart';
 import 'package:flutter_app/UI/themes/dark_theme.dart';
 import 'package:flutter_app/UI/themes/light_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_simple_dependency_injection/injector.dart';
 
 import 'Domain/liked-articles-logic.dart';
 import 'UI/widgets/news_tab.dart';
@@ -50,36 +46,33 @@ class NewsAppState extends ConsumerState<NewsApp> {
     LikedArticlesPageWidget(),
   ];
 
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: lightTheme,
-        darkTheme: darkTheme,
-        home: Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.computer),
-                label: 'Technology',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.account_balance_wallet_outlined),
-                label: 'Business',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite),
-                label: 'Favourites',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: Theme.of(context).colorScheme.primary,
-            onTap: _onItemTapped,
-          ),
-          body: pages[_selectedIndex],
-        ));
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      home: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.computer),
+              label: 'Technology',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_balance_wallet_outlined),
+              label: 'Business',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'Favourites',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Theme.of(context).colorScheme.primary,
+          onTap: _onItemTapped,
+        ),
+        body: pages[_selectedIndex],
+      ),
+    );
   }
 }
-
-

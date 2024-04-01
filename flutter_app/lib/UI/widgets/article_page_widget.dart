@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../Data/models/article_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'article_like_button_widget.dart';
+
 class ArticlePageWidget extends StatefulWidget {
   const ArticlePageWidget({Key? key, required this.article}) : super(key: key);
 
@@ -89,6 +91,12 @@ class ArticlePageWidgetState extends State<ArticlePageWidget> {
                   child: InkWell(
                     child: const Text('Open article in browser'),
                     onTap: () => launchUrl(Uri.parse(widget.article.url ?? "")),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Center(
+                    child: ArticleLikeButton(article: widget.article),
                   ),
                 ),
               ],

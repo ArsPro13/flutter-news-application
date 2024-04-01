@@ -6,17 +6,22 @@ import 'article_widget.dart';
 
 class LikedArticlesPageWidget extends ConsumerWidget {
   const LikedArticlesPageWidget({super.key});
+
   void initState() {}
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<ArticleData> articlesCollection = ref.watch(likedArticlesProvider).articles;
+    List<ArticleData> articlesCollection =
+        ref.watch(likedArticlesProvider).articles;
     return Center(
       child: ListView.builder(
         itemCount: articlesCollection.length,
         itemBuilder: (context, index) {
           return ArticleWidget(
-              article: articlesCollection[index], height: 300, width: 900);
+              article:
+                  articlesCollection[articlesCollection.length - index - 1],
+              height: 300,
+              width: 900);
           return null;
         },
       ),
