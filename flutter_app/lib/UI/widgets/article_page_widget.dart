@@ -57,19 +57,22 @@ class ArticlePageWidgetState extends State<ArticlePageWidget> {
                             fontSize: 30,
                           ),
                         ))),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    widget.article.urlToImage ?? "no image given",
-                    errorBuilder: (BuildContext context, Object exception,
-                        StackTrace? stackTrace) {
-                      return Center(
-                          child: Text(
-                        'Image can not be reached',
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.error),
-                      ));
-                    },
+                Padding(
+                    padding: const EdgeInsets.all(5),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      widget.article.urlToImage ?? "no image given",
+                      errorBuilder: (BuildContext context, Object exception,
+                          StackTrace? stackTrace) {
+                        return Center(
+                            child: Text(
+                              'Image can not be reached',
+                              style: TextStyle(
+                                  color: Theme.of(context).colorScheme.error),
+                            ));
+                      },
+                    ),
                   ),
                 ),
                 Padding(
