@@ -10,7 +10,8 @@ class ArticleWidget extends StatefulWidget {
       {super.key,
       required this.article,
       required this.height,
-      required this.width});
+      required this.width,
+      });
 
   final ArticleData article;
   final double height;
@@ -49,7 +50,9 @@ class ArticleWidgetState extends State<ArticleWidget> {
                 ArticleImageWidget(
                     imageUrl: widget.article.urlToImage ?? patternUrl,
                     height: widget.height,
-                    width: widget.width),
+                    width: widget.width,
+                    radius: 25,
+                ),
                 Container(
                   height: widget.height,
                   width: widget.width,

@@ -12,9 +12,9 @@ class NewsTab extends StatefulWidget {
   final String url;
 
   const NewsTab({
-    Key? key,
+    super.key,
     required this.url,
-  }) : super(key: key);
+  });
 
   @override
   NewsTabState createState() => NewsTabState();
