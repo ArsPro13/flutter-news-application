@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/UI/widgets/article_image_widget.dart';
 
 import '../../Data/models/article_model.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -48,32 +49,22 @@ class ArticlePageWidgetState extends State<ArticlePageWidget> {
                   ),
                 ),
                 Center(
-                    child: Padding(
-                        padding: const EdgeInsets.all(15),
-                        child: Text(
-                          widget.article.title ?? "no title given",
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30,
-                          ),
-                        ))),
-                Padding(
-                    padding: const EdgeInsets.all(5),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.network(
-                      widget.article.urlToImage ?? "no image given",
-                      errorBuilder: (BuildContext context, Object exception,
-                          StackTrace? stackTrace) {
-                        return Center(
-                            child: Text(
-                              'Image can not be reached',
-                              style: TextStyle(
-                                  color: Theme.of(context).colorScheme.error),
-                            ));
-                      },
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Text(
+                      widget.article.title ?? "no title given",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                      ),
                     ),
                   ),
+                ),
+                ArticleImageWidget(
+                  imageUrl: widget.article.urlToImage ?? patternUrl,
+                  height: 300,
+                  width: 1000,
+                  radius: 0,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15),
