@@ -67,9 +67,11 @@ class NewsTabState extends State<NewsTab> {
                   itemBuilder: (context, index) {
                     if (index < currentlyLoaded) {
                       return ArticleWidget(
-                          article: articlesData.getArticles()[index],
-                          height: 300,
-                          width: 900);
+                        article: articlesData.getArticles()[index],
+                        height: 300,
+                        width: 1000,
+                        id: index,
+                      );
                     } else if (index < articlesData.getArticles().length) {
                       return const Center(
                         child: CircularProgressIndicator(),

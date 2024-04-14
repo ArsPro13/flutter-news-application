@@ -7,9 +7,10 @@ import 'package:url_launcher/url_launcher.dart';
 import 'article_like_button_widget.dart';
 
 class ArticlePageWidget extends StatefulWidget {
-  const ArticlePageWidget({Key? key, required this.article}) : super(key: key);
+  const ArticlePageWidget({Key? key, required this.article, required this.id}) : super(key: key);
 
   final ArticleData article;
+  final int id;
 
   @override
   ArticlePageWidgetState createState() => ArticlePageWidgetState();
@@ -65,6 +66,7 @@ class ArticlePageWidgetState extends State<ArticlePageWidget> {
                   height: 300,
                   width: 1000,
                   radius: 0,
+                  id: widget.id,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15),
