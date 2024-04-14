@@ -12,12 +12,14 @@ class ArticleImageWidget extends StatefulWidget {
     required this.height,
     required this.width,
     required this.radius,
+    required this.id,
   });
 
   final String imageUrl;
   final double height;
   final double width;
   final double radius;
+  final int id;
 
   @override
   ArticleImageWidgetState createState() => ArticleImageWidgetState();
@@ -26,25 +28,20 @@ class ArticleImageWidget extends StatefulWidget {
 class ArticleImageWidgetState extends State<ArticleImageWidget> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: widget.height,
-      width: widget.width,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(widget.radius),
-        child: FittedBox(
-          fit: BoxFit.cover,
-          child: Hero(
-            tag: widget.imageUrl,
+    return Hero(
+      tag: widget.imageUrl + widget.id.toString(),
+      child: SizedBox(
+        height: widget.height,
+        width: widget.width,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(widget.radius),
+          child: FittedBox(
+            fit: BoxFit.cover,
             child: Image.network(
-              widget.imageUrl ?? "no url given",
+              widget.imageUrl ?? patternUrl,
               errorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
-                return ArticleImageWidget(
-                  imageUrl: patternUrl,
-                  height: widget.height,
-                  width: widget.width,
-                  radius: widget.radius,
-                );
+                return Image.network(patternUrl);
               },
             ),
           ),

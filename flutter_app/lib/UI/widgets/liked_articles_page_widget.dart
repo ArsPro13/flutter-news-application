@@ -22,6 +22,7 @@ class LikedArticlesPageWidget extends ConsumerWidget {
                   articlesCollection[articlesCollection.length - index - 1],
               height: 300,
               width: 900,
+              id: index,
           );
           return null;
         },
