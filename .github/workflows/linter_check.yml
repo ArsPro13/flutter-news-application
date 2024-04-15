@@ -10,11 +10,12 @@ jobs:
           channel: "stable"
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Change Directory
-        run: cd flutter_app
       - name: Get Dependencies
+        working-directory: ./flutter_app
         run: flutter pub get
       - name: Generate Code
+        working-directory: ./flutter_app
         run: dart run build_runner build
       - name: Check linter
+        working-directory: ./flutter_app
         run: flutter analyze
