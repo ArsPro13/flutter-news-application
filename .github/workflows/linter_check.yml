@@ -4,6 +4,8 @@ jobs:
   linter:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Up Flutter
+        uses: subosito/flutter-action
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check Linter
