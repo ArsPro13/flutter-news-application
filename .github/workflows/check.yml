@@ -38,6 +38,7 @@ jobs:
         working-directory: ./flutter_app
         run: dart format --output=none --set-exit-if-changed .
   unit_and_widget_tests:
+    needs: [linter, codestyle]
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Flutter
