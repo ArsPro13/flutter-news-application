@@ -21,7 +21,10 @@ void main() {
       ProviderScope(
         child: MaterialApp(
           home: Scaffold(
-            body: ArticlePageWidget(article: mockedArticle, id: 1,),
+            body: ArticlePageWidget(
+              article: mockedArticle,
+              id: 1,
+            ),
           ),
         ),
       ),

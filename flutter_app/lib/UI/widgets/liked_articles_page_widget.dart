@@ -18,11 +18,10 @@ class LikedArticlesPageWidget extends ConsumerWidget {
         itemCount: articlesCollection.length,
         itemBuilder: (context, index) {
           return ArticleWidget(
-              article:
-                  articlesCollection[articlesCollection.length - index - 1],
-              height: 300,
-              width: 900,
-              id: index,
+            article: articlesCollection[articlesCollection.length - index - 1],
+            height: 300,
+            width: 900,
+            id: index,
           );
         },
       ),

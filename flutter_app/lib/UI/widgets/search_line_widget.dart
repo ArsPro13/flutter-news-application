@@ -19,21 +19,25 @@ class SearchLineWidgetState extends ConsumerState<SearchLineWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.shrinkOffset < 50 ? TextField(
-      controller: searchController,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        labelText: 'Search',
-        suffixIcon: widget.shrinkOffset < 20 ? IconButton(
-          icon: const Icon(Icons.search),
-          onPressed: () async {
-            String req = searchController.text;
-            await ref.watch(searchingProvider).updateSearch(req);
-          },
-        ) : null,
-      ),
-    ) : Container();
+    return widget.shrinkOffset < 50
+        ? TextField(
+            controller: searchController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              labelText: 'Search',
+              suffixIcon: widget.shrinkOffset < 20
+                  ? IconButton(
+                      icon: const Icon(Icons.search),
+                      onPressed: () async {
+                        String req = searchController.text;
+                        await ref.watch(searchingProvider).updateSearch(req);
+                      },
+                    )
+                  : null,
+            ),
+          )
+        : Container();
   }
 }

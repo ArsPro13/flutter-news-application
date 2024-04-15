@@ -65,28 +65,27 @@ class ArticlesListState extends ConsumerState<ArticlesList> {
               child: CustomScrollView(
                 slivers: [
                   SliverPadding(
-                      padding: const EdgeInsets.only(top: 50),
-                      sliver: SliverList.builder(
-                        itemCount: currentlyLoaded + 1,
-                        itemBuilder: (context, index) {
-                          if (index < currentlyLoaded) {
-                            return ArticleWidget(
-                              article: articlesData.getArticles()[index],
-                              height: 300,
-                              width: 1000,
-                              id: index,
-                            );
-                          } else if (index < articlesData.getArticles().length) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          } else {
-                            return Container();
-                          }
-                        },
-                      ),
+                    padding: const EdgeInsets.only(top: 50),
+                    sliver: SliverList.builder(
+                      itemCount: currentlyLoaded + 1,
+                      itemBuilder: (context, index) {
+                        if (index < currentlyLoaded) {
+                          return ArticleWidget(
+                            article: articlesData.getArticles()[index],
+                            height: 300,
+                            width: 1000,
+                            id: index,
+                          );
+                        } else if (index < articlesData.getArticles().length) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else {
+                          return Container();
+                        }
+                      },
+                    ),
                   ),
-
                 ],
               ),
             ),

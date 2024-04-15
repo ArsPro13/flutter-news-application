@@ -11,6 +11,6 @@ class SearchingRequestProvider extends ChangeNotifier {
 }
 
 final searchingProvider =
-ChangeNotifierProvider<SearchingRequestProvider>((ref) {
+    ChangeNotifierProvider<SearchingRequestProvider>((ref) {
   return SearchingRequestProvider();
 });

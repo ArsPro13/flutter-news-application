@@ -92,7 +92,10 @@ class ArticlePageWidgetState extends State<ArticlePageWidget> {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Center(
-                    child: ArticleLikeButton(article: widget.article, id: widget.id,),
+                    child: ArticleLikeButton(
+                      article: widget.article,
+                      id: widget.id,
+                    ),
                   ),
                 ),
               ],

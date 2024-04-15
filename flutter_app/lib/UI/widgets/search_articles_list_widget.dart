@@ -11,7 +11,6 @@ import 'package:loading_indicator/loading_indicator.dart';
 import 'article_widget.dart';
 
 class SearchArticlesList extends ConsumerStatefulWidget {
-
   const SearchArticlesList({
     super.key,
   });
@@ -63,7 +62,8 @@ class SearchArticlesListState extends ConsumerState<SearchArticlesList> {
     }
     return loaded
         ? RefreshIndicator.adaptive(
-            onRefresh: () => fetchArticles(getUrlByRequest(currentURL), articlesData),
+            onRefresh: () =>
+                fetchArticles(getUrlByRequest(currentURL), articlesData),
             child: NotificationListener<ScrollNotification>(
               onNotification: (notification) {
                 if (notification is ScrollEndNotification &&

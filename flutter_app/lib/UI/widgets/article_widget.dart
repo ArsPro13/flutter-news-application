@@ -57,12 +57,14 @@ class ArticleWidgetState extends State<ArticleWidget> {
                 Positioned(
                   right: 5,
                   top: 5,
-                  child: ArticleLikeButton(article: widget.article, id: widget.id),
+                  child:
+                      ArticleLikeButton(article: widget.article, id: widget.id),
                 ),
               ],
             ),
             Container(
-              margin: const EdgeInsets.only(top: 10, left: 7, right: 7, bottom: 10),
+              margin:
+                  const EdgeInsets.only(top: 10, left: 7, right: 7, bottom: 10),
               child: Center(
                 child: Column(
                   children: [

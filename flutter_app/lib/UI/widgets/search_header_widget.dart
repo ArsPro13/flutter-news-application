@@ -16,13 +16,14 @@ class SearchHeaderWidget implements SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-
     return Padding(
       padding: const EdgeInsets.only(top: 70, bottom: 30),
       child: Center(
         child: SizedBox(
           width: 390,
-          child: SearchLineWidget(shrinkOffset: shrinkOffset,),
+          child: SearchLineWidget(
+            shrinkOffset: shrinkOffset,
+          ),
         ),
       ),
     );
