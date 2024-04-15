@@ -6,7 +6,8 @@ import 'package:flutter_app/UI/themes/light_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'Domain/liked-articles-logic.dart';
-import 'UI/widgets/news_tab.dart';
+import 'UI/widgets/articles_list_widget.dart';
+import 'UI/widgets/search_articles_list_widget.dart';
 
 var logger = Logger();
 
@@ -35,15 +36,15 @@ class NewsAppState extends ConsumerState<NewsApp> {
   }
 
   final List<Widget> pages = <Widget>[
-    NewsTab(
-        key: UniqueKey(),
-        url:
-            "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=82c08183dab84b009010cbf531da7cb3"),
-    NewsTab(
-        key: UniqueKey(),
-        url:
-            "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=82c08183dab84b009010cbf531da7cb3"),
-    LikedArticlesPageWidget(),
+    SearchArticlesList(
+      key: UniqueKey(),
+    ),
+    ArticlesList(
+      key: UniqueKey(),
+      url:
+          "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=82c08183dab84b009010cbf531da7cb3",
+    ),
+    const LikedArticlesPageWidget(),
   ];
 
   @override
@@ -55,12 +56,12 @@ class NewsAppState extends ConsumerState<NewsApp> {
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.computer),
-              label: 'Technology',
+              icon: Icon(Icons.search),
+              label: 'Search',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_balance_wallet_outlined),
-              label: 'Business',
+              icon: Icon(Icons.phone_android),
+              label: 'Technology',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),

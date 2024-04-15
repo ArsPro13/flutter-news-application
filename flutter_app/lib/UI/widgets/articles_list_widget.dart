@@ -1,29 +1,33 @@
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Data/DAO/articles_dao.dart';
 import 'package:flutter_app/Data/DAO/articles_runtime_dao.dart';
+import 'package:flutter_app/Domain/searching_articles_logic.dart';
+import 'package:flutter_app/UI/widgets/search_header_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
+import '../../main.dart';
 import 'article_widget.dart';
 
-class NewsTab extends StatefulWidget {
+class ArticlesList extends ConsumerStatefulWidget {
   final String url;
 
-  const NewsTab({
+  const ArticlesList({
     super.key,
     required this.url,
   });
 
   @override
-  NewsTabState createState() => NewsTabState();
+  ConsumerState<ArticlesList> createState() => ArticlesListState();
 }
 
-class NewsTabState extends State<NewsTab> {
+class ArticlesListState extends ConsumerState<ArticlesList> {
   ArticlesDao articlesData = ArticlesRuntimeDao();
   bool loaded = true;
   int currentlyLoaded = 5;
+  String currentURL = '';
 
   Future<void> fetchArticles(url, ArticlesDao dao) async {
     setState(() {
@@ -61,25 +65,32 @@ class NewsTabState extends State<NewsTab> {
                 }
                 return false;
               },
-              child: Center(
-                child: ListView.builder(
-                  itemCount: currentlyLoaded + 1,
-                  itemBuilder: (context, index) {
-                    if (index < currentlyLoaded) {
-                      return ArticleWidget(
-                        article: articlesData.getArticles()[index],
-                        height: 300,
-                        width: 1000,
-                        id: index,
-                      );
-                    } else if (index < articlesData.getArticles().length) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                    return null;
-                  },
-                ),
+              child: CustomScrollView(
+                slivers: [
+                  SliverPadding(
+                      padding: EdgeInsets.only(top: 50),
+                      sliver: SliverList.builder(
+                        itemCount: currentlyLoaded + 1,
+                        itemBuilder: (context, index) {
+                          if (index < currentlyLoaded) {
+                            return ArticleWidget(
+                              article: articlesData.getArticles()[index],
+                              height: 300,
+                              width: 1000,
+                              id: index,
+                            );
+                          } else if (index < articlesData.getArticles().length) {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          } else {
+                            return Container();
+                          }
+                        },
+                      ),
+                  ),
+
+                ],
               ),
             ),
           )
