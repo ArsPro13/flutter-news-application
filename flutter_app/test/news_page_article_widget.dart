@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UI/widgets/article_widget.dart';
-import 'package:flutter_app/UI/widgets/news_tab.dart';
+import 'package:flutter_app/UI/widgets/news_tab_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 

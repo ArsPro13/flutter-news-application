@@ -4,8 +4,6 @@ import 'package:flutter_app/UI/widgets/article_image_widget.dart';
 import '../../Data/models/article_model.dart';
 import '../animations/transition.dart';
 import 'article_like_button_widget.dart';
-import 'article_page_widget.dart';
-// import '../animations/transition.dart';
 
 class ArticleWidget extends StatefulWidget {
   const ArticleWidget({
@@ -33,7 +31,7 @@ class ArticleWidgetState extends State<ArticleWidget> {
         Navigator.of(context).push(verticalRoute(widget.article, widget.id));
       },
       child: Container(
-        margin: const EdgeInsets.only(left: 10, right: 10, top: 25),
+        margin: const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 20),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.background,
           borderRadius: const BorderRadius.all(Radius.circular(25)),
@@ -59,7 +57,7 @@ class ArticleWidgetState extends State<ArticleWidget> {
                 Positioned(
                   right: 5,
                   top: 5,
-                  child: ArticleLikeButton(article: widget.article),
+                  child: ArticleLikeButton(article: widget.article, id: widget.id),
                 ),
               ],
             ),

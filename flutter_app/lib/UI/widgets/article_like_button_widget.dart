@@ -8,9 +8,11 @@ class ArticleLikeButton extends ConsumerStatefulWidget {
   const ArticleLikeButton({
     super.key,
     required this.article,
+    required this.id,
   });
 
   final ArticleData article;
+  final int id;
 
   @override
   ConsumerState<ArticleLikeButton> createState() => ArticleLikeButtonState();
@@ -43,19 +45,22 @@ class ArticleLikeButtonState extends ConsumerState<ArticleLikeButton> {
       builder: (BuildContext context, double value, Widget? child) {
         return Padding(
           padding: EdgeInsets.all(40 - value / 2),
-          child: IconButton(
-            iconSize: value,
-            icon: const Icon(Icons.favorite),
-            color: isLiked ? Colors.redAccent : Colors.grey,
-            onPressed: () {
-              ref
-                  .read(likedArticlesProvider.notifier)
-                  .toggleLike(isLiked, widget.article);
-              current = value;
-              setState(() {
-                target = target == 50 ? 70 : 50;
-              });
-            },
+          child: Hero(
+            tag: 'like button${widget.article.urlToImage ?? ''}${widget.id}',
+            child: IconButton(
+              iconSize: value,
+              icon: const Icon(Icons.favorite),
+              color: isLiked ? Colors.redAccent : Colors.grey,
+              onPressed: () {
+                ref
+                    .read(likedArticlesProvider.notifier)
+                    .toggleLike(isLiked, widget.article);
+                current = value;
+                setState(() {
+                  target = target == 50 ? 70 : 50;
+                });
+              },
+            ),
           ),
         );
       },
