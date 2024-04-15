@@ -53,6 +53,6 @@ jobs:
       - name: Generate Code
         working-directory: ./flutter_app
         run: dart run build_runner build
-      - name: Check codestyle
+      - name: Check tests
         working-directory: ./flutter_app
         run: flutter test test
