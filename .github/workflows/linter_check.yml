@@ -11,4 +11,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check Linter
-        run: flutter analyze
+        run: cd flutter_app & flutter analyze
