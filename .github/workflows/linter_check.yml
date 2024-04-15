@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Flutter
-        uses: subosito/flutter-action
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Check Linter
