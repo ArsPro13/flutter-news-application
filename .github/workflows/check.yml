@@ -37,3 +37,22 @@ jobs:
       - name: Check codestyle
         working-directory: ./flutter_app
         run: dart format --output=none --set-exit-if-changed .
+  unit_and_widget_tests:
+    needs: [steps, codestyle]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Up Flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get Dependencies
+        working-directory: ./flutter_app
+        run: flutter pub get
+      - name: Generate Code
+        working-directory: ./flutter_app
+        run: dart run build_runner build
+      - name: Check codestyle
+        working-directory: ./flutter_app
+        run: flutter test test
