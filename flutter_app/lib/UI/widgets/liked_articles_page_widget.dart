@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../Data/models/article_model.dart';
 import 'package:flutter/material.dart';
-import '../../Domain/liked-articles-logic.dart';
+import '../../Domain/liked_articles_logic.dart';
 import 'article_widget.dart';
 
 class LikedArticlesPageWidget extends ConsumerWidget {
@@ -24,7 +24,6 @@ class LikedArticlesPageWidget extends ConsumerWidget {
               width: 900,
               id: index,
           );
-          return null;
         },
       ),
     );

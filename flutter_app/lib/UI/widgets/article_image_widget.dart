@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 const patternUrl =
@@ -38,7 +36,7 @@ class ArticleImageWidgetState extends State<ArticleImageWidget> {
           child: FittedBox(
             fit: BoxFit.cover,
             child: Image.network(
-              widget.imageUrl ?? patternUrl,
+              widget.imageUrl,
               errorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
                 return Image.network(patternUrl);

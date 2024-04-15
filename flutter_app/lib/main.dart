@@ -5,7 +5,7 @@ import 'package:flutter_app/UI/themes/dark_theme.dart';
 import 'package:flutter_app/UI/themes/light_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'Domain/liked-articles-logic.dart';
+import 'Domain/liked_articles_logic.dart';
 import 'UI/widgets/articles_list_widget.dart';
 import 'UI/widgets/search_articles_list_widget.dart';
 
@@ -14,7 +14,7 @@ var logger = Logger();
 void main() => runApp(const ProviderScope(child: NewsApp()));
 
 class NewsApp extends ConsumerStatefulWidget {
-  const NewsApp({Key? key}) : super(key: key);
+  const NewsApp({super.key});
 
   @override
   NewsAppState createState() => NewsAppState();

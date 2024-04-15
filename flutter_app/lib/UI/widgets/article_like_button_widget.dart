@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../Data/models/article_model.dart';
-import '../../Domain/liked-articles-logic.dart';
+import '../../Domain/liked_articles_logic.dart';
 
 class ArticleLikeButton extends ConsumerStatefulWidget {
   const ArticleLikeButton({

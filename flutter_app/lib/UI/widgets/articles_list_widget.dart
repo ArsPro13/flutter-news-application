@@ -3,12 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Data/DAO/articles_dao.dart';
 import 'package:flutter_app/Data/DAO/articles_runtime_dao.dart';
-import 'package:flutter_app/Domain/searching_articles_logic.dart';
-import 'package:flutter_app/UI/widgets/search_header_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
-import '../../main.dart';
 import 'article_widget.dart';
 
 class ArticlesList extends ConsumerStatefulWidget {
@@ -68,7 +65,7 @@ class ArticlesListState extends ConsumerState<ArticlesList> {
               child: CustomScrollView(
                 slivers: [
                   SliverPadding(
-                      padding: EdgeInsets.only(top: 50),
+                      padding: const EdgeInsets.only(top: 50),
                       sliver: SliverList.builder(
                         itemCount: currentlyLoaded + 1,
                         itemBuilder: (context, index) {

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Data/models/article_model.dart';
 
-class likedArticlesListProvider extends ChangeNotifier {
+class LikedArticlesListProvider extends ChangeNotifier {
   var articles = <ArticleData>[];
 
   Future<void> addArticle(ArticleData article) async {
@@ -67,7 +67,7 @@ class likedArticlesListProvider extends ChangeNotifier {
   }
 }
 
-late final likedArticlesProvider =
-    ChangeNotifierProvider<likedArticlesListProvider>((ref) {
-  return likedArticlesListProvider();
+final likedArticlesProvider =
+    ChangeNotifierProvider<LikedArticlesListProvider>((ref) {
+  return LikedArticlesListProvider();
 });

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/rendering/sliver_persistent_header.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_app/UI/widgets/search_line_widget.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SearchHeaderWidget implements SliverPersistentHeaderDelegate {
   SearchHeaderWidget({
@@ -9,7 +8,9 @@ class SearchHeaderWidget implements SliverPersistentHeaderDelegate {
     required this.maxExtent,
   });
 
+  @override
   final double minExtent;
+  @override
   final double maxExtent;
 
   @override

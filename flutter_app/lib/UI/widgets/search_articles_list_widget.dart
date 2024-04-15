@@ -43,7 +43,7 @@ class SearchArticlesListState extends ConsumerState<SearchArticlesList> {
   }
 
   String getUrlByRequest(String request) {
-    return 'https://newsapi.org/v2/everything?q=${request}&apiKey=82c08183dab84b009010cbf531da7cb3';
+    return 'https://newsapi.org/v2/everything?q=$request&apiKey=82c08183dab84b009010cbf531da7cb3';
   }
 
   @override
