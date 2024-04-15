@@ -39,7 +39,6 @@ jobs:
         run: dart format --output=none --set-exit-if-changed .
   unit_and_widget_tests:
     runs-on: ubuntu-latest
-    needs: [steps, codestyle]
     steps:
       - name: Set Up Flutter
         uses: subosito/flutter-action@v1
