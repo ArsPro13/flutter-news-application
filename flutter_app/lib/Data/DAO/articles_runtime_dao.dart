@@ -9,15 +9,20 @@ class ArticlesRuntimeDao implements ArticlesDao {
 
   @override
   Future<List<ArticleData>> fetchArticlesByUrl(url) async {
-    final response = await http.get(Uri.parse(url));
+    try {
+      final response = await http.get(Uri.parse(url));
 
-    if (response.statusCode == 200) {
-      Map data = json.decode(response.body);
-      final articles =
-          (data['articles'] as List).map((i) => ArticleData.fromJson(i));
-      _articles = articles.toList();
-      return articles.toList();
-    } else {
+      if (response.statusCode == 200) {
+        Map data = json.decode(response.body);
+        final articles =
+        (data['articles'] as List).map((i) => ArticleData.fromJson(i));
+        _articles = articles.toList();
+        return articles.toList();
+      } else {
+        _articles = [];
+        return [];
+      }
+    } catch (err) {
       _articles = [];
       return [];
     }

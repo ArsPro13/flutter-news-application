@@ -8,7 +8,7 @@ void main() {
   test('Проверка функции на невалидную ссылку', () async {
     ArticlesDao articlesData = ArticlesRuntimeDao();
 
-    await articlesData.fetchArticlesByUrl('https://aaa.aaa/');
+    await articlesData.fetchArticlesByUrl('a.a');
     print(articlesData.getArticles());
 
     expect(articlesData.getArticles(), equals([]));
