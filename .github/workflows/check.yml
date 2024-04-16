@@ -46,7 +46,7 @@ jobs:
         run: flutter test test
   build-apk:
     timeout-minutes: 10
-    needs: [unit_and_widget_tests]
+    needs: [unit-and-widget-tests]
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Flutter
