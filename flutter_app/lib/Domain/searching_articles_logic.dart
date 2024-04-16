@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SearchingRequestProvider extends ChangeNotifier {
-  String request = 'popular';
+  String request = 'fortnite';
 
   Future<void> updateSearch(String newRequest) async {
     request = newRequest;

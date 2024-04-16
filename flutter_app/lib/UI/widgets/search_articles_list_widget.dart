@@ -49,7 +49,7 @@ class SearchArticlesListState extends ConsumerState<SearchArticlesList> {
   void initState() {
     loaded = false;
     super.initState();
-    currentURL = 'cat';
+    currentURL = 'fortnite';
     fetchArticles(getUrlByRequest(currentURL), articlesData);
   }
 
