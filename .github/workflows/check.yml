@@ -1,7 +1,8 @@
 name: Linter Check
 on: push
 jobs:
-  linter:
+  linter-and-codestyle:
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Flutter
@@ -19,27 +20,14 @@ jobs:
       - name: Check linter
         working-directory: ./flutter_app
         run: flutter analyze
-  codestyle:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set Up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Get Dependencies
-        working-directory: ./flutter_app
-        run: flutter pub get
-      - name: Generate Code
-        working-directory: ./flutter_app
-        run: dart run build_runner build
       - name: Check codestyle
         working-directory: ./flutter_app
         run: dart format --output=none --set-exit-if-changed .
-  unit_and_widget_tests:
+
+  unit-and-widget-tests:
     needs: [linter, codestyle]
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - name: Set Up Flutter
         uses: subosito/flutter-action@v2
@@ -56,7 +44,8 @@ jobs:
       - name: Run tests
         working-directory: ./flutter_app
         run: flutter test test
-  generating_apk:
+  build-apk:
+    timeout-minutes: 10
     needs: [unit_and_widget_tests]
     runs-on: ubuntu-latest
     steps:
@@ -72,6 +61,6 @@ jobs:
       - name: Generate Code
         working-directory: ./flutter_app
         run: dart run build_runner build
-      - name: Generate APK
+      - name: Build APK
         working-directory: ./flutter_app
         run: flutter build apk
