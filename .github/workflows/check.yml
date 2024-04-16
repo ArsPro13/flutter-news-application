@@ -53,6 +53,25 @@ jobs:
       - name: Generate Code
         working-directory: ./flutter_app
         run: dart run build_runner build
-      - name: Check tests
+      - name: Run tests
         working-directory: ./flutter_app
         run: flutter test test
+  generating_apk:
+    needs: [unit_and_widget_tests]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Get Dependencies
+        working-directory: ./flutter_app
+        run: flutter pub get
+      - name: Generate Code
+        working-directory: ./flutter_app
+        run: dart run build_runner build
+      - name: Generate APK
+        working-directory: ./flutter_app
+        run: flutter build apk
