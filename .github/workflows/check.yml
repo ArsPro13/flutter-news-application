@@ -16,9 +16,9 @@ jobs:
       - name: Generate Code
         working-directory: ./flutter_app
         run: dart run build_runner build
-#      - name: Check linter
-#        working-directory: ./flutter_app
-#        run: flutter analyze
+      - name: Check linter
+        working-directory: ./flutter_app
+        run: flutter analyze
   codestyle:
     runs-on: ubuntu-latest
     steps:
