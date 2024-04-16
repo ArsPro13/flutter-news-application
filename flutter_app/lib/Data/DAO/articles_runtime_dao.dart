@@ -15,7 +15,7 @@ class ArticlesRuntimeDao implements ArticlesDao {
       if (response.statusCode == 200) {
         Map data = json.decode(response.body);
         final articles =
-        (data['articles'] as List).map((i) => ArticleData.fromJson(i));
+            (data['articles'] as List).map((i) => ArticleData.fromJson(i));
         _articles = articles.toList();
         return articles.toList();
       } else {
