@@ -9,6 +9,7 @@ void main() {
     ArticlesDao articlesData = ArticlesRuntimeDao();
 
     await articlesData.fetchArticlesByUrl('https://aaa.aaa/');
+    print(articlesData.getArticles());
 
     expect(articlesData.getArticles(), equals([]));
   });
