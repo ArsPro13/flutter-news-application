@@ -50,7 +50,7 @@ flutter run
 
 ### Лента (основной экран):
 
-![Лента с поиском](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main.png)
+![Лента с поиском | 200](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main.png)
 
 ### Страница новости:
 
