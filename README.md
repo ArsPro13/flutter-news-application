@@ -49,8 +49,7 @@ flutter run
 ## Скриншоты
 
 ### Лента (основной экран):
-
-![Лента с поиском | 200](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main.png)
+<img src="[https://your-image-url.type](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main.png)" height="100">
 
 ### Страница новости:
 
