@@ -23,7 +23,10 @@
 - Использование Riverpod для реализации управления состоянием UI
 - Страница избранных новостей
 - Разделение проекта на слои и декомпозиция логики
-- Написание Unit и Widget-тестов
+- Написаны Unit и Widget-тестов
+- Внедрены анимации (переход между страницами, лайка, hero-анимации перехода на страницу новости)
+- Поиск новостей
+- Подключен github actions
 
 ## Запуск
 
@@ -47,13 +50,13 @@ flutter run
 
 ### Лента (основной экран):
 
-![Лента](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main.jpg)
+![Лента с поиском](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/main.png)
 
 ### Страница новости:
 
-![Страница новости](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/article.jpg)
+![Страница новости](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/article.png)
 
 ### Страница избранных новостей:
 
-![Страница избранного](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/liked.jpg)
+![Страница избранного](https://github.com/ArsPro13/flutter-hw-1/blob/main/screenshots/liked.png)
 
