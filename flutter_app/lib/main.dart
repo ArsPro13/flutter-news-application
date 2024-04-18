@@ -52,32 +52,30 @@ class NewsAppState extends ConsumerState<NewsApp> {
     return MaterialApp(
       theme: lightTheme,
       darkTheme: darkTheme,
-      home: Builder(
-        builder: (context) {
-          return Scaffold(
-            bottomNavigationBar: BottomNavigationBar(
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.search),
-                  label: 'Search',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.phone_android),
-                  label: 'Technology',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite),
-                  label: 'Favourites',
-                ),
-              ],
-              currentIndex: _selectedIndex,
-              selectedItemColor: Theme.of(context).colorScheme.primary,
-              onTap: _onItemTapped,
-            ),
-            body: pages[_selectedIndex],
-          );
-        }
-      ),
+      home: Builder(builder: (context) {
+        return Scaffold(
+          bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.search),
+                label: 'Search',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.phone_android),
+                label: 'Technology',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite),
+                label: 'Favourites',
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            selectedItemColor: Theme.of(context).colorScheme.primary,
+            onTap: _onItemTapped,
+          ),
+          body: pages[_selectedIndex],
+        );
+      }),
     );
   }
 }

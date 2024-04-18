@@ -17,7 +17,6 @@ class LikedArticlesPageWidget extends ConsumerStatefulWidget {
 
 class LikedArticlesPageWidgetState
     extends ConsumerState<LikedArticlesPageWidget> {
-
   int currentlyLoaded = 5;
 
   void initState() {
