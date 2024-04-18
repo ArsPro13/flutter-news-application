@@ -392,14 +392,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
-  loading_indicator:
+  loading_animation_widget:
     dependency: "direct main"
     description:
-      name: loading_indicator
-      sha256: a101ffb2aa3e646137d7810bfa90b50525dd3f72c01235b6df7491cf6af6f284
+      name: loading_animation_widget
+      sha256: ee3659035528d19145d50cf0107632bf647e7306c88b6a32f35f3bed63f6d728
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.1"
+    version: "1.2.1"
   logger:
     dependency: "direct main"
     description:

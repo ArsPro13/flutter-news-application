@@ -6,7 +6,7 @@ import 'package:flutter_app/Data/DAO/articles_runtime_dao.dart';
 import 'package:flutter_app/Domain/searching_articles_logic.dart';
 import 'package:flutter_app/UI/widgets/search_header_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:loading_indicator/loading_indicator.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import 'article_widget.dart';
 
@@ -104,12 +104,9 @@ class SearchArticlesListState extends ConsumerState<SearchArticlesList> {
               ),
             ),
           )
-        : const Center(
-            child: LoadingIndicator(
-              indicatorType: Indicator.pacman,
-              colors: [Colors.blueAccent, Colors.red],
-              strokeWidth: 1,
-            ),
+        : Center(
+            child: LoadingAnimationWidget.dotsTriangle(
+                color: Theme.of(context).colorScheme.secondary, size: 100),
           );
   }
 }

@@ -14,7 +14,7 @@ dependencies:
   http: ^1.2.1
   logger: ^2.0.2+1
   cached_network_image: ^3.3.1
-  loading_indicator: ^3.0.1
+  loading_animation_widget: ^1.2.1
   json_serializable: ^6.7.1
   build_runner: ^2.4.4
   mobx_codegen: ^2.6.0+1
