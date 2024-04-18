@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../Data/models/article_model.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +18,7 @@ class LikedArticlesPageWidgetState
     extends ConsumerState<LikedArticlesPageWidget> {
   int currentlyLoaded = 5;
 
+  @override
   void initState() {
     super.initState();
   }
@@ -43,7 +43,7 @@ class LikedArticlesPageWidgetState
           }
           return false;
         },
-        child: articlesCollection.length > 0
+        child: articlesCollection.isNotEmpty
             ? CustomScrollView(
                 slivers: [
                   SliverPadding(
